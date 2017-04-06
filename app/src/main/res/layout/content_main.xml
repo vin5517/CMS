@@ -13,19 +13,64 @@
     tools:showIn="@layout/app_bar_main"
     android:id="@+id/Hello">
 
-    <TextView
-        android:layout_width="wrap_content"
+    <EditText
+        android:id="@+id/firstname"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        android:id="@+id/textView2" />
-
-    <CheckBox
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="New CheckBox"
-        android:id="@+id/checkBox"
-        android:layout_marginTop="104dp"
-        android:layout_below="@+id/button"
+        android:ems="10"
+        android:hint="Enter First Name"
+        android:inputType="textPersonName"
+        android:layout_above="@+id/lastname"
         android:layout_alignParentStart="true" />
 
+    <EditText
+        android:id="@+id/lastname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Last Name"
+        android:inputType="textPersonName"
+        android:layout_above="@+id/dob"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/dob"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Date of Birth"
+        android:inputType="date"
+        android:layout_above="@+id/phone"
+        android:layout_alignParentStart="true" />
+
+    <EditText
+        android:id="@+id/phone"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="Enter Phone No."
+        android:inputType="phone"
+        android:layout_above="@+id/buttonsaveuser"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="41dp" />
+
+    <Button
+        android:id="@+id/buttonsaveuser"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Save"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginBottom="91dp" />
+
+    <TextView
+        android:id="@+id/textView5"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:fontFamily="sans-serif"
+        android:text="CMS"
+        android:textAlignment="center"
+        android:textSize="36sp"
+        android:textStyle="bold" />
 </RelativeLayout>
