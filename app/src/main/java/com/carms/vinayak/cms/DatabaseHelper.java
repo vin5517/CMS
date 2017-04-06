@@ -1,5 +1,6 @@
 package com.carms.vinayak.cms;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -19,7 +20,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
 
     public DatabaseHelper(Context context) {
         super(context, DATABASE_NAME, null, 1);
-        SQLiteDatabase db = this.getWritableDatabase();
+
     }
 
     @Override
@@ -32,6 +33,21 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         db.execSQL("DROP TABLE IF EXISTS " + TABLE_NAME);
         onCreate(db);
+
+    }
+
+    public boolean insertUser(String firstname, String lastname, String dob, String phone){
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues contentValues = new ContentValues();
+        contentValues.put(COL_1, firstname);
+        contentValues.put(COL_2, lastname);
+        contentValues.put(COL_3, dob);
+        contentValues.put(COL_4, phone);
+        long result = db.insert(TABLE_NAME, null, contentValues);
+        if (result == -1)
+            return false;
+        else
+            return true;
 
     }
 }

@@ -13,11 +13,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.EditText;
+import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     DatabaseHelper myDB;
+    EditText editfirstname, editlastname, editdob, editphone;
+    Button btnaddUser;
 
 
     @Override
@@ -27,6 +32,13 @@ public class MainActivity extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         myDB = new DatabaseHelper(this);
+
+        editfirstname = (EditText)findViewById(R.id.firstname);
+        editlastname = (EditText)findViewById(R.id.lastname);
+        editdob = (EditText)findViewById(R.id.dob);
+        editphone = (EditText)findViewById(R.id.phone);
+        btnaddUser = (Button) findViewById(R.id.buttonsaveuser);
+        addUser();
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -45,6 +57,22 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
+    }
+
+    public void addUser(){
+        btnaddUser.setOnClickListener(
+            new View.OnClickListener(){
+                public void onClick(View v){
+                    boolean isinserted = myDB.insertUser(editfirstname.getText().toString(), editlastname.getText().toString(), editdob.getText().toString(), editphone.getText().toString());
+                    if(isinserted)
+                        Toast.makeText(MainActivity.this,"User Added", Toast.LENGTH_LONG).show();
+                    else
+                        Toast.makeText(MainActivity.this,"User Not Added", Toast.LENGTH_LONG).show();
+
+
+                }
+            }
+        );
     }
 
     @Override
