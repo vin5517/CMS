@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".VehicleAdd"></activity>
+        <activity android:name=".VehicleAdd" />
+        <activity android:name=".ExpenseAdd"></activity>
     </application>
 
 </manifest>

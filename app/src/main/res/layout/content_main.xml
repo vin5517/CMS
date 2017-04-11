@@ -67,14 +67,13 @@
         android:id="@+id/textView5"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_above="@+id/firstname"
         android:layout_alignParentStart="true"
         android:layout_alignParentTop="true"
-        android:fontFamily="casual"
+        android:fontFamily="sans-serif"
         android:text="CMS"
         android:textAlignment="center"
         android:textAllCaps="true"
-        android:textColor="@android:color/holo_blue_dark"
+        android:textColor="@color/colorPrimaryDark"
         android:textSize="40sp"
         android:textStyle="bold" />
 </RelativeLayout>
