@@ -123,8 +123,5 @@ public class MainActivity extends AppCompatActivity
         return true;
     }
 
-    public void onClickSaveButton(View view){
-        Intent intent = new Intent(this, Main2Activity.class);
-        startActivity(intent);
-    }
+
 }
