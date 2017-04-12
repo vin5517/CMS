@@ -43,12 +43,10 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public static final String T3_TABLE_NAME = "EXPENSE";
     public static final String T3_COL_1 = "EXPENSE_ID";
     public static final String T3_COL_2 = "DATE";
-    public static final String T3_COL_3 = "TOLL";
-    public static final String T3_COL_4 = "FUEL";
-    public static final String T3_COL_5 = "SERVICE";
-    public static final String T3_COL_6 = "PARKING";
-    public static final String T3_COL_7 = "NOTES";
-    public static final String T3_COL_8 = "VEHICLEID";
+    public static final String T3_COL_3 = "EXPENSE_TYPE";
+    public static final String T3_COL_4 = "EXPENSE_AMOUNT";
+    public static final String T3_COL_5 = "NOTES";
+    public static final String T3_COL_6 = "VEHICLEID";
 
 
     //Table Trip
@@ -76,7 +74,7 @@ public class DatabaseHelper extends SQLiteOpenHelper{
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE " + T1_TABLE_NAME + "( " + T1_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + T1_COL_2 + " VARCHAR(45), " + T1_COL_3 + " VARCHAR(45), " + T1_COL_4 + " VARCHAR(45), " + T1_COL_5 + " VARCHAR(45)) ");
         db.execSQL("CREATE TABLE " + T2_TABLE_NAME + "( " + T2_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + T2_COL_2 + " VARCHAR(45), " + T2_COL_3 + " VARCHAR(45), " + T2_COL_4 + " VARCHAR(45), " + T2_COL_5 + " VARCHAR(45), " + T2_COL_6 + " VARCHAR(45), " + T2_COL_7 + " VARCHAR(45), " + T2_COL_8 + " VARCHAR(45), " + T2_COL_9 + " VARCHAR(45), " + T2_COL_10 + " INTEGER NOT NULL, FOREIGN KEY (" + T2_COL_10 + ") REFERENCES " + T1_TABLE_NAME + "(" + T1_COL_1 + ")) ");
-        db.execSQL("CREATE TABLE " + T3_TABLE_NAME + "( " + T3_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + T3_COL_2 + " VARCHAR(45), " + T3_COL_3 + " VARCHAR(45), " + T3_COL_4 + " VARCHAR(45), " + T3_COL_5 + " VARCHAR(45), " + T3_COL_6 + " VARCHAR(45), " + T3_COL_7 + " VARCHAR(45), " + T3_COL_8 + " INTEGER NOT NULL, FOREIGN KEY (" + T3_COL_8 + ") REFERENCES " + T2_TABLE_NAME + "(" + T2_COL_1 + ")) ");
+        db.execSQL("CREATE TABLE " + T3_TABLE_NAME + "( " + T3_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + T3_COL_2 + " VARCHAR(45), " + T3_COL_3 + " VARCHAR(45), " + T3_COL_4 + " VARCHAR(45), " + T3_COL_5 + " VARCHAR(45), " + T3_COL_6 + " VARCHAR(45), FOREIGN KEY (" + T3_COL_6 + ") REFERENCES " + T2_TABLE_NAME + "(" + T2_COL_1 + ")) ");
         db.execSQL("CREATE TABLE " + T4_TABLE_NAME + "( " + T4_COL_1 + " INTEGER PRIMARY KEY AUTOINCREMENT, " + T4_COL_2 + " VARCHAR(45), " + T4_COL_3 + " VARCHAR(45), " + T4_COL_4 + " VARCHAR(45), " + T4_COL_5 + " VARCHAR(45), " + T4_COL_6 + " VARCHAR(45), " + T4_COL_7 + " VARCHAR(45), " + T4_COL_8 + " INTEGER NOT NULL, FOREIGN KEY (" + T4_COL_8 + ") REFERENCES " + T2_TABLE_NAME + "(" + T2_COL_1 + ")) ");
 
     }
